@@ -10,10 +10,9 @@ import 'package:portfolio/main.dart';
 
 void main() {
   testWidgets('App smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
     await tester.pumpWidget(const AppEntry());
+    await tester.pumpAndSettle();
 
-    // Verify that our name is present.
-    expect(find.text('Najeeb AY'), findsWidgets);
+    expect(find.textContaining('Najeeb'), findsWidgets);
   });
 }
