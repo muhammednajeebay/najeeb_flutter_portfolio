@@ -22,7 +22,8 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme.primary.withValues(alpha: 0.13);
+    final colorScheme = Theme.of(context).colorScheme;
+    final color = colorScheme.primary.withValues(alpha: 0.13);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
       elevation: 7,
@@ -79,11 +80,15 @@ class ProjectCard extends StatelessWidget {
               children: [
                 ElevatedButton.icon(
                   onPressed: () => _launchGithub(),
-                  icon: const Icon(Icons.code, size: 19, color: Colors.white),
-                  label: const Text("GitHub",
-                      style: TextStyle(color: Colors.white)),
+                  icon:
+                      Icon(Icons.code, size: 19, color: colorScheme.onPrimary),
+                  label: Text(
+                    "GitHub",
+                    style: TextStyle(color: colorScheme.onPrimary),
+                  ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    backgroundColor: colorScheme.primary,
+                    foregroundColor: colorScheme.onPrimary,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 18, vertical: 6),
                     shape: RoundedRectangleBorder(

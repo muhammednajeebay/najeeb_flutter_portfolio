@@ -53,14 +53,14 @@ class _MotionBackgroundState extends State<MotionBackground>
           end: Alignment(1 - parallax, 1 + sway * 0.2),
           colors: isDark
               ? [
+                  colorScheme.background,
                   colorScheme.surface.withValues(alpha: 0.95),
-                  colorScheme.background.withValues(alpha: 0.92),
-                  colorScheme.surfaceVariant.withValues(alpha: 0.85),
+                  colorScheme.surfaceVariant.withValues(alpha: 0.75),
                 ]
               : [
-                  colorScheme.primary.withValues(alpha: 0.18),
-                  colorScheme.secondary.withValues(alpha: 0.12),
-                  colorScheme.tertiary.withValues(alpha: 0.09),
+                  colorScheme.surface,
+                  colorScheme.background,
+                  colorScheme.surfaceVariant,
                 ],
         );
 
@@ -82,24 +82,24 @@ class _MotionBackgroundState extends State<MotionBackground>
               ),
               _GlowingBlob(
                 color: (isDark
-                    ? colorScheme.primary.withValues(alpha: 0.12)
-                    : colorScheme.primary.withValues(alpha: 0.18)),
+                    ? colorScheme.primary.withValues(alpha: 0.08)
+                    : colorScheme.primary.withValues(alpha: 0.12)),
                 diameter: isDark ? 360 : 320,
                 top: -80 + wave * 20,
                 left: -60 + parallax * 240,
               ),
               _GlowingBlob(
                 color: (isDark
-                    ? colorScheme.secondary.withValues(alpha: 0.12)
-                    : colorScheme.secondary.withValues(alpha: 0.16)),
+                    ? colorScheme.secondary.withValues(alpha: 0.08)
+                    : colorScheme.secondary.withValues(alpha: 0.12)),
                 diameter: isDark ? 320 : 280,
                 bottom: -60 + sway * 15,
                 right: -40 - parallax * 260,
               ),
               _GlowingBlob(
                 color: (isDark
-                    ? colorScheme.tertiary.withValues(alpha: 0.1)
-                    : colorScheme.tertiary.withValues(alpha: 0.14)),
+                    ? colorScheme.tertiary.withValues(alpha: 0.08)
+                    : colorScheme.tertiary.withValues(alpha: 0.12)),
                 diameter: isDark ? 420 : 380,
                 top: 180 + parallax * 120,
                 right: 60 + wave * 30,

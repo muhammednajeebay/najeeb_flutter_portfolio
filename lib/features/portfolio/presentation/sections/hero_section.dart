@@ -80,27 +80,6 @@ class HeroSection extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Positioned.fill(
-          child: IgnorePointer(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: isDark
-                      ? [
-                          colorScheme.surfaceVariant.withValues(alpha: 0.55),
-                          colorScheme.surface.withValues(alpha: 0.78),
-                        ]
-                      : [
-                          colorScheme.primary.withValues(alpha: .12),
-                          colorScheme.secondary.withValues(alpha: .08),
-                        ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-              ),
-            ),
-          ),
-        ),
-        Positioned.fill(
           child: Align(
             alignment: Alignment.center,
             child: Container(
@@ -153,7 +132,7 @@ class HeroSection extends StatelessWidget {
                         delay: Duration(milliseconds: 200)),
                   ],
                   child: Text(
-                    "Flutter Engineer  •  Product-minded Mobile Dev",
+                    "Flutter Developer",
                     style: theme.textTheme.titleLarge?.copyWith(
                       color: colorScheme.primary,
                       fontWeight: FontWeight.w700,
