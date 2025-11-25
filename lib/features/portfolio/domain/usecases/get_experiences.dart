@@ -10,4 +10,3 @@ class GetExperiences {
     return repository.getExperiences();
   }
 }
-

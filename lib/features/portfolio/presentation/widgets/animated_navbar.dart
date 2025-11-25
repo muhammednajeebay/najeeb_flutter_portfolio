@@ -10,7 +10,14 @@ class AnimatedNavbar extends StatelessWidget {
       {super.key, required this.onTap, required this.isMobile});
   @override
   Widget build(BuildContext context) {
-    final labels = ['Home', 'About', 'Experience', 'Projects', 'Skills', 'Contact'];
+    final labels = [
+      'Home',
+      'About',
+      'Experience',
+      'Projects',
+      'Skills',
+      'Contact'
+    ];
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: .95),

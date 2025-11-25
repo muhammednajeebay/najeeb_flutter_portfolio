@@ -21,4 +21,3 @@ class ExperienceModel extends Experience {
     );
   }
 }
-

@@ -15,4 +15,3 @@ class Experience {
     required this.techStack,
   });
 }
-
