@@ -1,3 +1,4 @@
+import '../../domain/entities/experience.dart';
 import '../../domain/entities/project.dart';
 import '../../domain/entities/skill.dart';
 import '../../domain/repositories/portfolio_repository.dart';
@@ -16,5 +17,10 @@ class PortfolioRepositoryImpl implements PortfolioRepository {
   @override
   Future<List<Skill>> getSkills() async {
     return await localDataSource.getSkills();
+  }
+
+  @override
+  Future<List<Experience>> getExperiences() async {
+    return await localDataSource.getExperiences();
   }
 }

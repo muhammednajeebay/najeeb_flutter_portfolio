@@ -73,36 +73,36 @@ class HeroSection extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     Animate(
-                      effects: [
-                        FadeEffect(duration: 450.ms, delay: 300.ms),
-                        MoveEffect(
-                            begin: const Offset(0, 16), duration: 400.ms),
-                      ],
-                      child: RichText(
-                        textAlign: isMobile ? TextAlign.center : TextAlign.left,
-                        text: TextSpan(
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          children: const [
-                            TextSpan(text: "Flutter "),
-                            TextSpan(
-                                text: "Developer",
-                                style: TextStyle(
-                                    color: Color(0xFF4A90E2),
-                                    fontWeight: FontWeight.bold)),
-                            TextSpan(text: "  •  "),
-                            TextSpan(text: "BLoC, GetX, Provider "),
-                            TextSpan(
-                                text: "• ",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            TextSpan(
-                                text: "Clean Architecture",
-                                style: TextStyle(
-                                    color: Color(0xFF27AE60),
-                                    fontWeight: FontWeight.bold)),
+                        effects: [
+                          FadeEffect(duration: 450.ms, delay: 300.ms),
+                          MoveEffect(
+                              begin: const Offset(0, 16), duration: 400.ms),
+                        ],
+                        child: Column(
+                          crossAxisAlignment: isMobile
+                              ? CrossAxisAlignment.center
+                              : CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Flutter Developer  •  Mobile App Engineer",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(
+                                      color: const Color(0xFF4A90E2),
+                                      fontWeight: FontWeight.w700),
+                              textAlign:
+                                  isMobile ? TextAlign.center : TextAlign.left,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              "I craft production-grade Flutter apps that balance performance, clean architecture, and intuitive UX with state management, API-driven flows, animations, and platform integrations.",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                              textAlign:
+                                  isMobile ? TextAlign.center : TextAlign.left,
+                            ),
                           ],
-                        ),
-                      ),
-                    ),
+                        )),
                     const SizedBox(height: 22),
                     Animate(
                       effects: const [FadeEffect(), ScaleEffect()],

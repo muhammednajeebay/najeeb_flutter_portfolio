@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../domain/entities/experience.dart';
 import '../../domain/entities/project.dart';
 import '../../domain/entities/skill.dart';
+import '../../domain/usecases/get_experiences.dart';
 import '../../domain/usecases/get_projects.dart';
 import '../../domain/usecases/get_skills.dart';
 import '../sections/about_section.dart';
 import '../sections/contact_section.dart';
 import '../sections/hero_section.dart';
+import '../sections/experience_section.dart';
 import '../sections/projects_section.dart';
 import '../sections/skills_section.dart';
 import '../widgets/animated_navbar.dart';
@@ -16,11 +19,13 @@ import '../widgets/section_divider.dart';
 class HomePage extends StatefulWidget {
   final GetProjects getProjects;
   final GetSkills getSkills;
+  final GetExperiences getExperiences;
 
   const HomePage({
     super.key,
     required this.getProjects,
     required this.getSkills,
+    required this.getExperiences,
   });
 
   @override
@@ -31,12 +36,14 @@ class _HomePageState extends State<HomePage> {
   final ScrollController _sc = ScrollController();
   final homeKey = GlobalKey();
   final aboutKey = GlobalKey();
+  final experienceKey = GlobalKey();
   final projectsKey = GlobalKey();
   final skillsKey = GlobalKey();
   final contactKey = GlobalKey();
 
   List<Project> _projects = [];
   List<Skill> _skills = [];
+  List<Experience> _experiences = [];
 
   @override
   void initState() {
@@ -47,9 +54,11 @@ class _HomePageState extends State<HomePage> {
   Future<void> _loadData() async {
     final projects = await widget.getProjects();
     final skills = await widget.getSkills();
+    final experiences = await widget.getExperiences();
     setState(() {
       _projects = projects;
       _skills = skills;
+      _experiences = experiences;
     });
   }
 
@@ -62,6 +71,7 @@ class _HomePageState extends State<HomePage> {
     final name = {
       homeKey: 'home',
       aboutKey: 'about',
+      experienceKey: 'experience',
       projectsKey: 'projects',
       skillsKey: 'skills',
       contactKey: 'contact',
@@ -84,6 +94,9 @@ class _HomePageState extends State<HomePage> {
                 break;
               case 'About':
                 scrollTo(aboutKey);
+                break;
+              case 'Experience':
+                scrollTo(experienceKey);
                 break;
               case 'Projects':
                 scrollTo(projectsKey);
@@ -129,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                                 .headlineLarge
                                 ?.copyWith(color: Colors.white))),
                   ),
-                  ...['Home', 'About', 'Projects', 'Skills', 'Contact']
+                  ...['Home', 'About', 'Experience', 'Projects', 'Skills', 'Contact']
                       .map((l) {
                     return ListTile(
                         title: Text(l),
@@ -138,6 +151,7 @@ class _HomePageState extends State<HomePage> {
                           scrollTo({
                             'Home': homeKey,
                             'About': aboutKey,
+                            'Experience': experienceKey,
                             'Projects': projectsKey,
                             'Skills': skillsKey,
                             'Contact': contactKey,
@@ -160,6 +174,10 @@ class _HomePageState extends State<HomePage> {
             const SectionDivider(curveType: CurveType.bottom),
             SectionContainer(key: aboutKey, child: const AboutSection()),
             const SectionDivider(curveType: CurveType.top),
+            SectionContainer(
+                key: experienceKey,
+                child: ExperienceSection(experiences: _experiences)),
+            const SectionDivider(curveType: CurveType.bottom),
             SectionContainer(
                 key: projectsKey, child: ProjectsSection(projects: _projects)),
             const SectionDivider(curveType: CurveType.bottom),

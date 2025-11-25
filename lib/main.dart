@@ -6,6 +6,7 @@ import 'core/theme/app_theme.dart';
 import 'core/theme/theme_cubit.dart';
 import 'features/portfolio/data/datasources/portfolio_local_data_source.dart';
 import 'features/portfolio/data/repositories/portfolio_repository_impl.dart';
+import 'features/portfolio/domain/usecases/get_experiences.dart';
 import 'features/portfolio/domain/usecases/get_projects.dart';
 import 'features/portfolio/domain/usecases/get_skills.dart';
 import 'features/portfolio/presentation/pages/home_page.dart';
@@ -24,6 +25,7 @@ class AppEntry extends StatelessWidget {
     final repository = PortfolioRepositoryImpl(localDataSource: dataSource);
     final getProjects = GetProjects(repository);
     final getSkills = GetSkills(repository);
+    final getExperiences = GetExperiences(repository);
 
     final router = GoRouter(
       initialLocation: '/',
@@ -33,6 +35,7 @@ class AppEntry extends StatelessWidget {
           builder: (context, state) => HomePage(
             getProjects: getProjects,
             getSkills: getSkills,
+            getExperiences: getExperiences,
           ),
         ),
       ],

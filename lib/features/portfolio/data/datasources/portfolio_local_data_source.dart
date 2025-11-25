@@ -1,10 +1,12 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../models/experience_model.dart';
 import '../models/project_model.dart';
 import '../models/skill_model.dart';
 
 abstract class PortfolioLocalDataSource {
   Future<List<ProjectModel>> getProjects();
   Future<List<SkillModel>> getSkills();
+  Future<List<ExperienceModel>> getExperiences();
 }
 
 class PortfolioLocalDataSourceImpl implements PortfolioLocalDataSource {
@@ -14,39 +16,40 @@ class PortfolioLocalDataSourceImpl implements PortfolioLocalDataSource {
     return const [
       ProjectModel(
         imageUrl:
-            'https://repository-images.githubusercontent.com/479239619/c718eeb7-4ec6-4816-86ad-a6f7733f66d7',
-        title: 'Job Posting Portal',
+            'https://images.unsplash.com/photo-1516245834210-c4c142787335?auto=format&fit=crop&w=1200&q=60',
+        title: 'Responsive Text Plus',
         description:
-            'Job platform for student and parents with real-time job posting and applications.',
-        technologies: ['Flutter', 'Provider', 'REST'],
-        githubUrl: 'https://github.com/muhammednajeebay/jobportal',
+            'Customizable text-scaling package that keeps typography consistent across mobile, web, and desktop with adaptive fonts, multi-line handling, and overflow control.',
+        technologies: ['Flutter', 'Dart', 'Responsive UI'],
+        githubUrl: 'https://github.com/muhammednajeebay/responsive_text_plus',
       ),
       ProjectModel(
         imageUrl:
-            'https://repository-images.githubusercontent.com/236710041/1b0dfd00-0c69-11eb-826d-d4543825a7ea',
-        title: 'News Aggregator',
+            'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=60',
+        title: 'Placement Assistance App',
         description:
-            'News app with live data from NewsAPI, clean UI and state with Provider.',
+            'Role-based placement management system for companies and students with structured approval flows, secure authentication, REST integrations, and predictable Provider-driven state.',
+        technologies: ['Flutter', 'Provider', 'REST'],
+        githubUrl:
+            'https://github.com/muhammednajeebay/placement_assistance_app',
+      ),
+      ProjectModel(
+        imageUrl:
+            'https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1200&q=60',
+        title: 'News Hunt',
+        description:
+            'Real-time news aggregation platform with categorized feeds, bookmarking, API caching, pagination, and resilient error handling for smooth reading experiences.',
         technologies: ['Flutter', 'Provider', 'REST'],
         githubUrl: 'https://github.com/muhammednajeebay/news-app',
       ),
       ProjectModel(
         imageUrl:
-            'https://repository-images.githubusercontent.com/385889541/83e8c980-0715-11eb-96eb-adcd24bec505',
-        title: 'Recipe Recommendation',
+            'https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=60',
+        title: 'Quiz App',
         description:
-            'Collaboration app with ML backend, user-uploaded recipes, and live recommendations.',
-        technologies: ['Flutter', 'Http', 'Python'],
-        githubUrl: 'https://github.com/muhammednajeebay/recipe_app',
-      ),
-      ProjectModel(
-        imageUrl:
-            'https://repository-images.githubusercontent.com/458759867/a066389d-0de3-4e60-b3ac-401be1409509',
-        title: 'Mobile Banking Demo',
-        description:
-            'UI/UX for mobile banking with transaction and transfer simulation.',
+            'Interactive quiz experience powered by API-driven questions, timers, progress tracking, real-time scoring, and modular widgets that minimize rebuilds.',
         technologies: ['Flutter', 'Provider', 'REST'],
-        githubUrl: 'https://github.com/muhammednajeebay/bank-app',
+        githubUrl: 'https://github.com/muhammednajeebay/quiz-app',
       ),
     ];
   }
@@ -55,16 +58,79 @@ class PortfolioLocalDataSourceImpl implements PortfolioLocalDataSource {
   Future<List<SkillModel>> getSkills() async {
     return const [
       SkillModel(
-          icon: FontAwesomeIcons.mobileScreenButton, name: 'Flutter & Dart'),
+        icon: FontAwesomeIcons.mobileScreenButton,
+        name:
+            'Flutter & Mobile · Flutter, Dart, Responsive UI, Animations, Cross-Platform',
+      ),
       SkillModel(
-          icon: FontAwesomeIcons.codeBranch, name: 'BLoC, Provider, GetX'),
-      SkillModel(icon: FontAwesomeIcons.globe, name: 'GraphQL, REST API'),
-      SkillModel(icon: FontAwesomeIcons.fire, name: 'Firebase'),
-      SkillModel(icon: FontAwesomeIcons.code, name: 'Clean Code'),
-      SkillModel(icon: FontAwesomeIcons.gitAlt, name: 'Git, GitHub'),
-      SkillModel(icon: FontAwesomeIcons.gears, name: 'CI/CD, Testing'),
+        icon: FontAwesomeIcons.codeBranch,
+        name:
+            'State Management · BLoC, Cubit, Provider, GetX with predictable flows',
+      ),
       SkillModel(
-          icon: FontAwesomeIcons.laptopCode, name: 'Android Studio, VS Code'),
+        icon: FontAwesomeIcons.layerGroup,
+        name:
+            'Architecture · Clean Architecture, Modular, MVC, SOLID, GoRouter, Navigator 2.0',
+      ),
+      SkillModel(
+        icon: FontAwesomeIcons.cloud,
+        name:
+            'Backend & Realtime · REST, GraphQL, WebSocket, Supabase, Firebase',
+      ),
+      SkillModel(
+        icon: FontAwesomeIcons.database,
+        name: 'Storage · Hive, Sqflite, SharedPreferences',
+      ),
+      SkillModel(
+        icon: FontAwesomeIcons.toolbox,
+        name:
+            'Tools & Testing · Git, GitHub, Postman, Android Studio, VS Code, API Profiling, Unit & Widget Testing, CI/CD (Basics)',
+      ),
+    ];
+  }
+
+  @override
+  Future<List<ExperienceModel>> getExperiences() async {
+    return const [
+      ExperienceModel(
+        company: 'NEXTEONS Software Solutions',
+        role: 'Flutter Developer',
+        period: 'May 2024 – Oct 2025',
+        location: 'Kerala, India',
+        highlights: [
+          'Engineered ERP, LMS, and workflow suites with modular Clean Architecture to cut duplication and improve maintainability.',
+          'Developed real-time dashboards with WebSocket and optimized GraphQL queries to keep performance stable under heavy concurrency.',
+          'Led API profiling, caching, and refactors that reduced latency and kept UI interactions responsive.',
+          'Collaborated with backend engineers and designers in Agile/Scrum ceremonies, contributing to sprint planning, reviews, and debugging.'
+        ],
+        techStack: [
+          'Flutter',
+          'GetX',
+          'BLoC',
+          'GraphQL',
+          'WebSocket',
+          'Supabase'
+        ],
+      ),
+      ExperienceModel(
+        company: 'Luminar TechnoHub',
+        role: 'Flutter Intern',
+        period: 'Nov 2023 – May 2024',
+        location: 'Kerala, India',
+        highlights: [
+          'Integrated REST APIs and Firebase services to enable secure auth, realtime sync, and cloud-backed workflows.',
+          'Built reusable UI flows and feature modules with Provider to reduce rebuild overhead and improve maintainability.',
+          'Applied Clean Architecture patterns across modules to keep features testable and scalable.',
+          'Delivered DIGIBANK and YUMMLY modules covering account views, transactions, recipes, uploads, bookmarking, and category browsing.'
+        ],
+        techStack: [
+          'Flutter',
+          'Provider',
+          'REST API',
+          'Firebase',
+          'Clean Architecture'
+        ],
+      ),
     ];
   }
 }

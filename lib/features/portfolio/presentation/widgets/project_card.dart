@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'tech_icon.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -11,6 +12,14 @@ class ProjectCard extends StatelessWidget {
       required this.imageUrl,
       required this.tech,
       required this.github});
+
+  Future<void> _launchGithub() async {
+    final launched = await launchUrlString(github);
+    if (!launched) {
+      debugPrint('Could not launch $github');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.primary.withValues(alpha: 0.13);
@@ -69,9 +78,7 @@ class ProjectCard extends StatelessWidget {
             Row(
               children: [
                 ElevatedButton.icon(
-                  onPressed: () {
-                    // Open GitHub link
-                  },
+                  onPressed: () => _launchGithub(),
                   icon: const Icon(Icons.code, size: 19, color: Colors.white),
                   label: const Text("GitHub",
                       style: TextStyle(color: Colors.white)),

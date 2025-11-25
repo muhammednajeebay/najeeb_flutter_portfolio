@@ -30,13 +30,11 @@ class AboutSection extends StatelessWidget {
               const SizedBox(width: 32),
               Expanded(
                 child: Text(
-                  '''I'm a passionate Flutter developer with a special love for modern state management and clean, scalable architecture.
+                  '''Hi, I'm Najeeb, a Flutter Developer and Mobile App Engineer who loves crafting fast, scalable, and user-focused products that feel thoughtful from the first interaction to the last delivery.
 
-- Built 10+ robust mobile apps (BLoC, Provider, GetX, Clean Architecture)
-- Comfortable with: REST, GraphQL, Firebase, CI/CD, Testing
-- Love to collaborate and stay on top of new UI/UX trends
+My expertise spans state management, API-driven development, animations, and platform integrations. I obsess over clean architecture and maintainable code so solutions stay elegant and sustainable as they grow.
 
-Let's build delightful experiences together!''',
+I thrive on continuous learning, constructive feedback, and pragmatic problem-solving while keeping long-term scalability in mind. Let's build seamless experiences together.''',
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium
