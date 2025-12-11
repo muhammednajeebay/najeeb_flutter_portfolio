@@ -123,19 +123,6 @@ This ensures easy expansion and maintainable UI rendering.
 
 ---
 
-## 🤝 Contributing
-
-While this is a personal portfolio project, contributions that improve:
-
-- UI/UX
-- Documentation
-- Animation performance
-- Architectural patterns
-
-…are welcome and appreciated.
-
----
-
 ## 🚀 Running the Project
 
 ### 1. Clone repository
@@ -164,11 +151,9 @@ flutter build apk
 
 ## 🧭 Roadmap
 
-- [ ] Add interactive case-study screens with diagrams
-- [ ] Add Rive-powered micro-interactions
-- [ ] Integrate Medium articles dynamically
-- [ ] Implement analytics for project engagement
-- [ ] Add language selector for international visitors
+- [x] Add interactive case-study screens with diagrams
+- [x] Implement analytics for project engagement
+- [x] Add language selector for international visitors
 
 ---
 
