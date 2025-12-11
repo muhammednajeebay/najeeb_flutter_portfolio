@@ -177,7 +177,7 @@ flutter build apk
 **Muhammed Najeeb A Y**  
 *Flutter Developer | Architecture • Performance • UI Systems*
 
-- 🌐 Portfolio: [Your website link]
+- 🌐 Portfolio: [https://najeebay.netlify.app](https://najeebay.netlify.app)
 - 🐙 GitHub: [https://github.com/muhammednajeebay](https://github.com/muhammednajeebay)
 - 🔗 LinkedIn: [https://linkedin.com/in/muhammednajeebay](https://linkedin.com/in/muhammednajeebay)
 
